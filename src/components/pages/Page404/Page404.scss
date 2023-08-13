@@ -1,11 +1,11 @@
 .film-list {
-    overflow: hidden;
 }
 
 .film-list__list {
     display: flex;
-    gap: 4em;
+    gap: 140px;
     list-style-type: none;
-    overflow: scroll;
-    padding-bottom: 2em;
+}
+
+.film-list__list li {
 }

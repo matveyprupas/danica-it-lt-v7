@@ -1,7 +1,8 @@
 import './App.scss';
-import { FilmList } from '../FilmList';
-import { PeopleInFilm } from '../PeopleInFilm';
-import { NavigationBar } from '../NavigationBar';
+import { Route, Routes } from 'react-router-dom';
+import { Page404 } from '../pages/Page404';
+import { AboutPage } from '../pages/AboutPage';
+import { FilmsPage } from '../pages/FilmsPage';
 
 export function App() {
   return (
@@ -9,9 +10,13 @@ export function App() {
       <header className="app__header">
         <h1>Star Wars Films explorer</h1>
       </header>
-      <FilmList />
-      <PeopleInFilm />
-      <NavigationBar />
+      <Routes>
+        <Route path="/" element={<FilmsPage />} />
+          
+        <Route path="/about" element={<AboutPage />} />
+
+        <Route path="*" element={<Page404 />} />
+      </Routes>
     </div>
   );
 }
