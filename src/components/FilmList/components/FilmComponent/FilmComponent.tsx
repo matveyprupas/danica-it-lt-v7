@@ -15,7 +15,6 @@ export function FilmComponent(props: Film) {
   const handleChangeFilmID = (id: string) => {
 
     const charsUrls = films.filter(film => film.episode_id.toString() === id)[0].characters;
-    // console.log(charsUrls);
 
     filmsDispatch({
       type: 'CHANGE_FILM_ID',
@@ -27,8 +26,6 @@ export function FilmComponent(props: Film) {
       }
     });
   }
-
-
 
   return (
     <div className="film">

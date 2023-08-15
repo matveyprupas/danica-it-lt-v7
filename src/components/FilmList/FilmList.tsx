@@ -5,7 +5,6 @@ import { FilmsContext } from '../contexts/FilmContext';
 import api from '../../api/api';
 
 export function FilmList() {
-  // const [charactersUrls, setCharactersUrls] = useState<string[]>([]);
   const {
     filmsDispatch,
     filmsState
@@ -28,34 +27,27 @@ export function FilmList() {
   }, [])
 
   useEffect(() => {
-
-    // console.log('useEffert with [filmsState.charactersUrls] started');
-    // console.log(filmsState.charactersUrls);
-    const charactersRequests = filmsState.charactersUrls.map(charUrl => {
-      return api.swapiApi.getCharacter(charUrl)
-    });
-
-    Promise.all(charactersRequests)
-    .then(results => results.map(res => res.data))
-      .then(characters => {
-        // console.log( characters );
-        filmsDispatch({
-          type: 'CHARACTERS_ADD',
-          filmsState: {
-            ...filmsState,
-            characters: characters
-          }
-        })
-      })
-      .catch(err => {
-        console.error(err);
+    if(filmsState.charactersUrls.length) {
+      const charactersRequests = filmsState.charactersUrls.map(charUrl => {
+        return api.swapiApi.getCharacter(charUrl)
       });
+  
+      Promise.all(charactersRequests)
+      .then(results => results.map(res => res.data))
+        .then(characters => {
+          filmsDispatch({
+            type: 'CHARACTERS_ADD',
+            filmsState: {
+              ...filmsState,
+              characters: characters
+            }
+          })
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    }
   }, [filmsState.charactersUrls]);
-
-  // console.log(filmsState.charactersUrls);
-
-  console.log('FilmList render with filmsState: ', filmsState);
-
 
   return (
     <section className="film-list">

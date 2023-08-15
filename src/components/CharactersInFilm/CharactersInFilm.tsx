@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import './CharactersInFilm.scss';
 import { FilmsContext } from '../contexts/FilmContext';
-// import { useCharacter } from '../../queries/characters';
 import { CharacterComponent } from './components/Character';
 
 export function CharactersInFilm() {
@@ -11,8 +10,6 @@ export function CharactersInFilm() {
       characters
     },
   } = useContext(FilmsContext);
-
-  // const {data, isLoading} = useCharacter(filmId as string)
 
   return (
     <div className="characters">
