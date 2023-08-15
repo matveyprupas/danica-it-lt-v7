@@ -4,13 +4,8 @@ import './index.css';
 import { App } from './components/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { QueryClient, QueryClientProvider } from 'react-query';
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: { refetchOnWindowFocus: false, retry: false, staleTime: Infinity },
-  },
-});
+import { AppContextProvider } from './components/contexts/AppContext';
+import { FilmsContextProvider } from './components/contexts/FilmContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -18,9 +13,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
+      <AppContextProvider>
+        <FilmsContextProvider>
+          <App />
+        </FilmsContextProvider>
+      </AppContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -1,0 +1,15 @@
+.character {
+    display: grid;
+    grid-template-columns: 4em auto repeat(3, 12em);
+    grid-template-rows: 2em;
+    text-align: left;
+    align-items: center;
+    padding: 0 1em;
+}
+
+.character_odd {
+    background-color: lightgrey;
+}
+
+.character__name {
+}

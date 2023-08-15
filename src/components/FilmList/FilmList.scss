@@ -1,5 +1,5 @@
 .film-list {
-    overflow: hidden;
+    // overflow: hidden;
 }
 
 .film-list__list {
@@ -7,5 +7,6 @@
     gap: 4em;
     list-style-type: none;
     overflow: scroll;
-    padding-bottom: 2em;
+    padding: 0;
+    margin: 0;
 }

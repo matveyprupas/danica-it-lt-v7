@@ -1,7 +1,34 @@
+import { useContext } from 'react';
 import { Film } from '../../../../models/Film';
+import { FilmsContext } from '../../../contexts/FilmContext';
 import './FilmComponent.scss';
 
 export function FilmComponent(props: Film) {
+
+  const {
+    filmsDispatch,
+    filmsState: {
+      films
+    }
+  } = useContext(FilmsContext);
+
+  const handleChangeFilmID = (id: string) => {
+
+    const charsUrls = films.filter(film => film.episode_id.toString() === id)[0].characters;
+    // console.log(charsUrls);
+
+    filmsDispatch({
+      type: 'CHANGE_FILM_ID',
+      filmsState: {
+        filmId: id,
+        films: films,
+        characters: [],
+        charactersUrls: [...charsUrls as string[]]
+      }
+    });
+  }
+
+
 
   return (
     <div className="film">
@@ -14,7 +41,14 @@ export function FilmComponent(props: Film) {
           {props.episode_id}
         </span>
       </div>
-      <a className='film__people'>Show people</a>
+      <button 
+        className='film__characters' 
+        onClick={
+          () => handleChangeFilmID(props.episode_id.toString())
+        }
+      >
+        Show characters
+      </button>
     </div>
   );
 }
