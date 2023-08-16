@@ -7,20 +7,18 @@ export function FilmComponent(props: Film) {
 
   const {
     filmsDispatch,
-    filmsState: {
-      films
-    }
+    filmsState
   } = useContext(FilmsContext);
 
   const handleChangeFilmID = (id: string) => {
 
-    const charsUrls = films.filter(film => film.episode_id.toString() === id)[0].characters;
+    const charsUrls = filmsState.films.filter(film => film.episode_id.toString() === id)[0].characters;
 
     filmsDispatch({
       type: 'CHANGE_FILM_ID',
       filmsState: {
+        ...filmsState,
         filmId: id,
-        films: films,
         characters: [],
         charactersUrls: [...charsUrls as string[]]
       }

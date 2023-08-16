@@ -49,6 +49,8 @@ export function FilmList() {
     }
   }, [filmsState.charactersUrls]);
 
+  console.log('FilmList renders with filmsState: ', filmsState)
+
   return (
     <section className="film-list">
       { !filmsState.films.length ? 
