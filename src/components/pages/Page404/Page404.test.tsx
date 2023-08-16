@@ -4,6 +4,6 @@ import { Page404 } from './Page404';
 
 test('renders learn react link', () => {
   render(<Page404 />);
-  const linkElement = screen.getByText(/learn react/i);
+  const linkElement = screen.getByText(/Page not found/i);
   expect(linkElement).toBeInTheDocument();
 });

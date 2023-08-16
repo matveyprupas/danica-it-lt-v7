@@ -12,11 +12,11 @@ export function CharacterComponent({
 }: CharacterComponentProps) {
   return (
     <div className={`character ${id % 2 ? '' : 'character_odd'}`}>
-      <span>{id}</span>
+      <span className='character__id'>{id}</span>
       <span className='character__name'>Name: {character.name}</span>
-      <span>Birth Year: {character.birth_year}</span>
-      <span>Gender: {character.gender}</span>
-      <span>Mass: {character.mass}, kg</span>
+      <span className='character__birth'>Birth Year: {character.birth_year}</span>
+      <span className='character__gender'>Gender: {character.gender}</span>
+      <span className='character__mass'>Mass: {character.mass}, kg</span>
     </div>
   );
 }

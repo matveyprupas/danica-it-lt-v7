@@ -16,7 +16,6 @@ export const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }
           {children}
         </main>
       </div>
-      
     </div>
   );
 }

@@ -11,5 +11,40 @@
     background-color: lightgrey;
 }
 
-.character__name {
+@media screen and (max-width: 1200px) {
+    .character {
+        grid-template-columns: 2em repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .character__id {
+        grid-row: 1 / 3;
+    }
+
+    .character__name {
+        grid-column: 2 / 4;
+    }
+
+    .character__birth {
+        grid-column: 4 ;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .character {
+        grid-template-columns: 2em repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .character__id {
+        grid-row: 1 / 4;
+    }
+
+    .character__name {
+        grid-column: 2 / 4;
+    }
+
+    .character__birth {
+        grid-column: 2 / 4;
+    }
 }

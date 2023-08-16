@@ -2,9 +2,10 @@
     padding: 1em;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 1em;
     border: 1px solid black;
+    min-width: 200px;
 }
 
 .film__info {
@@ -34,5 +35,9 @@
     align-items: center;
 }
 
-.film__characters {
-}
+@media screen and (max-width: 1200px) {
+  
+    .film__info {
+        width: 100%;
+    }
+  }
